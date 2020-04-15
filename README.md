@@ -1,3 +1,12 @@
-# jwt-auth-nodejs
+# indoor-plants-API
+ Nodejs,express,Mongdb
 
-signup and login jwt auth nodejs
+# Documentation and Testing-Swagger API
+https://induspetalia-indoorplants.herokuapp.com/api-docs
+# run 
+  git clone and npm install
+  
+ # ENV variables
+  PRIVATEKEY<br/>
+  PORT<br/>
+  MONGO_URL<br/>
