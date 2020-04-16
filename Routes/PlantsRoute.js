@@ -53,8 +53,18 @@ Router.get('/',asyncvalidator(async function (req, res) {
  *         in: formData
  *         required: true
  *         type: string
- *       - name: howto
- *         description: description on how to take care of the plant
+ *       - name: category
+ *         description: category of indoor plant
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: sunlight
+ *         description: amount of sunlight required
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: water
+ *         description: how often to water them
  *         in: formData
  *         required: true
  *         type: string
@@ -62,10 +72,12 @@ Router.get('/',asyncvalidator(async function (req, res) {
  *       200:
  *         description: Your indoor plant is added.
  */
-Router.post('/',auth,check('name','name is empty').not().isEmpty()
+Router.post('/',check('name','name is empty').not().isEmpty()
     ,check('image','image is empty').not().isEmpty()
     ,check('description','description is empty').not().isEmpty()
-    ,check('howto','howto is empty').not().isEmpty()
+    ,check('category','category is empty').not().isEmpty()
+    ,check('water','water is empty').not().isEmpty()
+    ,check('sunlight','sunlight is empty').not().isEmpty()
     ,asyncvalidator(async (req,res)=>{
     const errors = myvalidationResult(req);
     if(!errors.isEmpty()) return res.status(422).json(errors.array() );
@@ -73,7 +85,9 @@ Router.post('/',auth,check('name','name is empty').not().isEmpty()
         name:req.body.name,
         image:req.body.image,
         description:req.body.description,
-        howto:req.body.howto
+        category:req.body.category,
+        water:req.body.water,
+        sunlight:req.body.sunlight
     });
     await re.save();
     res.send({msg:"Your indoor plant is added."});
