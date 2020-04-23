@@ -31,16 +31,6 @@ const myvalidationResult = validationResult.withDefaults({
  *         in: formData
  *         required: true
  *         type: string
- *       - name: roomno
- *         description: room number
- *         in: formData
- *         required: true
- *         type: string
- *       - name: year
- *         description: year of study
- *         in: formData
- *         required: true
- *         type: string
  *       - name: password
  *         description: password
  *         in: formData
@@ -60,8 +50,6 @@ Router.post('/',[
     check('name','username should have min. 5 characters').isLength({min:5}),
     check('password','password must be min. 6 characters.').isLength({min:6}),
     check('confirmPassword',' confirm password must be min. 6 characters.').isLength({min:6}),
-    check('roomno').isLength({min:3,max:3}).withMessage('room number should have 3 numbers only'),
-    check('year','year is required')
 ],asyncvalidator(async (req,res)=>{
     const errors = myvalidationResult(req);
     if(!errors.isEmpty()) return res.status(422).json(errors.array() );

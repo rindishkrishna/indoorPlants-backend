@@ -72,7 +72,7 @@ Router.get('/',asyncvalidator(async function (req, res) {
  *       200:
  *         description: Your indoor plant is added.
  */
-Router.post('/',check('name','name is empty').not().isEmpty()
+Router.post('/',auth,check('name','name is empty').not().isEmpty()
     ,check('image','image is empty').not().isEmpty()
     ,check('description','description is empty').not().isEmpty()
     ,check('category','category is empty').not().isEmpty()

@@ -7,13 +7,6 @@ const options = {
             description:
                 "A documention of Backend API written in Nodejs.",
         },
-        securityDefinitions: {
-            Bearer: {
-                "type": "apiKey",
-                "name": "auth",
-                "in": "header"
-            },
-        }
     },
     apis: ['./Routes/LoginRoute.js','./Routes/RegisterRoute.js','./Routes/ReviewRoute.js','./Routes/MessRoute.js','./Routes/CountRoute.js','./Routes/PlantsRoute.js']
 };
