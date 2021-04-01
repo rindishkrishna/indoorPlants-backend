@@ -1,5 +1,5 @@
 node_modules
 .idea
-Error.log
+Errors.log
 uncaughtExceptions.log
 .env
